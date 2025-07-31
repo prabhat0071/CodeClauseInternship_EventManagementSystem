@@ -49,11 +49,33 @@ cd CodeClauseInternship_EventManagementSystem
 
 2. Install dependencies:
 
-3. Import the `database.sql` file in your MySQL server.
+3. Package                Version
+---------------------- -------
+blinker                1.8.2
+click                  8.1.7
+colorama               0.4.6
+Flask                  3.0.3
+Flask-MySQLdb          2.0.0
+greenlet               3.0.3
+itsdangerous           2.2.0
+Jinja2                 3.1.4
+MarkupSafe             2.1.5
+mysql-connector-python 9.4.0
+mysqlclient            2.2.7
+pdfkit                 1.0.0
+pip                    24.1.2
+playwright             1.44.0
+pyee                   11.1.0
+setuptools             70.3.0
+typing_extensions      4.12.2
+Werkzeug               3.0.3
+wheel                  0.43.0
 
-4. Run the Flask app:
+4. Import the `database.sql` file in your MySQL server.
 
-5.  Open browser and visit:
+5. Run the Flask app:
+
+6.  Open browser and visit:
 
    http://localhost:5000
 
