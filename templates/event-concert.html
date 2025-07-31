@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Concert - PrabhatEvents</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- 🔷 Navbar -->
+    <nav class="navbar">
+      <div class="logo">PrabhatEvents</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="create.html">Create</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- 📃 Event Details Section -->
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+        <img
+          src="{{ url_for('static', filename='image_web/live_concert.webp') }}"
+          alt="Concert Banner"
+        />
+        <div class="event-info-box">
+          <h1>🎤 Live Concert</h1>
+          <p class="event-meta">
+            📍 Noida Stadium | 🗓️ 20 July 2025 | 🕒 6:00 PM
+          </p>
+          <p class="event-desc">
+            Experience an electrifying night of music, dance, and memories! Join
+            us for top artist performances and a vibe like never before.
+          </p>
+
+          <div class="ticket-box">
+            <p><strong>🎟️ Ticket Price:</strong> ₹499</p>
+            <a href="book.html">
+              <button class="book-btn">Book Ticket</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

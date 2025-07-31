@@ -1,0 +1,17 @@
+<!-- templates/sidebar.html -->
+<aside class="sidebar">
+  <h2>Admin Panel</h2>
+  <ul>
+    {% if 'full_name' in session %}
+    <li style="color: white">Hello, {{ session['full_name'] }}</li>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('list_users') }}">Users</a></li>
+    <li><a href="{{ url_for('admin_event_form') }}">Events</a></li>
+    <li><a href="{{ url_for('admin_bookings') }}">Bookings</a></li>
+    <li><a href="{{ url_for('admin_attendees') }}">Attendees</a></li>
+    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    {% else %}
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    {% endif %}
+  </ul>
+</aside>

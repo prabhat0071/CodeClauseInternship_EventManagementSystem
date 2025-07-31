@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin | Attendees</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin.css') }}"
+    />
+  </head>
+  <body>
+    <section class="attendee-section">
+      <h1 class="section-title">Attendees List</h1>
+
+      <div class="attendee-table">
+        <div class="sidebar-container">{% include 'sidebar.html' %}</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Attendee Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Event Name</th>
+              <th>Attendee Status</th>
+              <th>Registered On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for attendee in attendees %}
+            <tr>
+              <td>{{ attendee.id }}</td>
+              <td>{{ attendee.name }}</td>
+              <td>{{ attendee.email }}</td>
+              <td>{{ attendee.phone }}</td>
+              <td>{{ attendee.event_type }}</td>
+              <td>{{ attendee.status }}</td>
+              <td>{{ attendee.created_at }}</td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="6">No attendees found</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

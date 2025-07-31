@@ -1,0 +1,44 @@
+<!-- event-birthday.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Bash - PrabhatEvents</title>
+     <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">PrabhatEvents</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="create.html">Create</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+             <img
+          src="{{ url_for('static', filename='image_web/birthday.webp') }}"
+          alt="event Banner"
+        />
+        <div class="event-info-box">
+          <h1>Birthday Bash</h1>
+          <p class="event-meta">📍 Delhi | 🗓️ 22 July | 🕒 5:00 PM</p>
+          <p class="event-desc">
+            Celebrate your special day with fun, cake, and dance!
+          </p>
+          <div class="ticket-box">
+            <p><strong>🎟️ Ticket Price:</strong> ₹299</p>
+            <a href="book.html">
+            <button class="book-btn">Book Ticket</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin - User List</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin.css') }}"
+    />
+  </head>
+  <body>
+    <section
+      class="main-content"
+      style="margin-left: 250px; padding: 20px; max-width: 1200px"
+    >
+      <h1>User Management</h1>
+
+      <div class="search-filter-container">{% include 'sidebar.html' %}</div>
+
+      <div class="user-table-container">
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ user[1] }}</td>
+              <!-- full_name -->
+              <td>{{ user[2] }}</td>
+              <!-- email -->
+              <td>{{ user[3] }}</td>
+              <!-- role -->
+              <td>Active</td>
+              <!-- Placeholder, agar DB me status ho to use -->
+              <td>
+                <form
+                  method="POST"
+                  action="{{ url_for('delete_user', user_id=user[0]) }}"
+                >
+                  <button type="submit" class="delete-btn">Delete</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

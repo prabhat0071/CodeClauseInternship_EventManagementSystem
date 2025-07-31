@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prabhat Events</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- 🔷 Navbar -->
+    <nav class="navbar">
+      <div class="logo">PrabhatEvents</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('book_ticket') }}">Event Booking</a></li>
+        <li><a href="{{ url_for('attendees_form') }}">Attendees</a></li>
+        {% if 'user_id' in session %}
+        <li style="color: white">Hello, {{ session['full_name'] }}</li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <!-- 🔶 Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Create & Explore Events</h1>
+        <p>Manage birthdays, anniversaries, college fests and more with ease</p>
+        <a href="#events" class="btn">Explore Events</a>
+      </div>
+    </section>
+
+    <!-- 🔻 Upcoming Events Section -->
+    <section class="events-section" id="events">
+      <h2>Upcoming Events</h2>
+      <div class="events-grid">
+        <!-- Event 1: Concert -->
+        <div class="event-card">
+          <img
+            src="{{ url_for('static', filename='image_web/event1-liveconcert.jpg') }}"
+            alt="event1-liveconcert"
+          />
+          <div class="event-info">
+            <h3>Live Concert</h3>
+            <p>📍 Noida | 🗓️ 20 July | ₹499</p>
+            <a href="{{url_for('event_concern')}}" class="event-btn"
+              >View Details</a
+            
+          </div>
+        </div>
+
+        <!-- Event 2: Birthday -->
+        <div class="event-card">
+          <img
+            src="{{ url_for('static', filename='image_web/event2-birthday.webp') }}"
+            alt="event2-birthday"
+          />
+          <div class="event-info">
+            <h3>Birthday Bash</h3>
+            <p>📍 Delhi | 🗓️ 22 July | ₹299</p>
+            <a href="{{url_for('event_birthday')}}" class="event-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Event 3: Anniversary -->
+        <div class="event-card">
+          <img
+            src="{{ url_for('static', filename='image_web/event3-aniversarry.webp') }}"
+            alt="event3-aniversarry"
+          />
+          <div class="event-info">
+            <h3>Anniversary Night</h3>
+            <p>📍 Ghaziabad | 🗓️ 30 July | ₹999</p>
+            <a href="{{url_for('event_anniversary')}}" class="event-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔷 About / How It Works Section -->
+    <section class="about-section" id="about">
+      <div class="about-content">
+        <h2>How PrabhatEvents Works</h2>
+        <p>
+          PrabhatEvents lets you create, manage, and promote events
+          effortlessly. Whether it's a birthday party, college fest, or wedding
+          — we’ve got you covered!
+        </p>
+
+        <div class="about-steps">
+          <div class="step">
+            <h3>🎉 Book your Event</h3>
+            <p>
+              Fill details,<br />
+              choose date, and set ticket price — all in minutes.
+            </p>
+            <a href="{{url_for('book_ticket')}}" class="step-link">
+              <div class="step">
+                <div class="step-btn">
+                  <span class="event-btn">Book Event</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="step">
+            <h3>📣 Promote It</h3>
+            <p>
+              Get a shareable link,<br />
+              posters, and<br />
+              social media boost options.
+            </p>
+
+            <a href="#" class="step-link">
+              <div class="step">
+                <div class="step-btn">
+                  <span class="event-btn">Promote It</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="step">
+            <h3>🎟️ Sell Tickets</h3>
+            <p>
+              Track registrations, collect payments, and manage guests easily.
+            </p>
+            <a href="{{url_for('book_ticket')}}" class="step-link">
+              <div class="step">
+                <div class="step-btn">
+                  <span class="event-btn">Book Ticket</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- 🔻 Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <h3>✨ Prabhat Events</h3>
+        <p>Your one-stop platform for organizing unforgettable events.</p>
+
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#events">Events</a>
+          <a href="#about">About</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+              alt="Facebook"
+          /></a>
+          <a href="#"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+              alt="Instagram"
+          /></a>
+          <a href="#"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+              alt="Twitter"
+          /></a>
+        </div>
+
+        <p class="footer-copy">© 2025 PrabhatEvents. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

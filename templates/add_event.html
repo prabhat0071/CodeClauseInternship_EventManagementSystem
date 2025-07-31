@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Event</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin.css') }}"
+    />
+  </head>
+  <body>
+    <div class="custom-form-container">
+      <div class="search-filter-container">{% include 'sidebar.html' %}</div>
+      <h2>Add Event</h2>
+      <form action="{{ url_for('add_admin_event') }}" method="POST">
+        <input type="text" name="title" placeholder="Event Title" required />
+        <input type="date" name="date" required />
+        <input type="text" name="location" placeholder="Location" required />
+        <input
+          type="number"
+          name="price"
+          placeholder="Ticket Price (₹)"
+          required
+        />
+
+        <!-- ✅ New Fields -->
+        <label for="start_time">Start Time:</label>
+        <input type="time" id="start_time" name="start_time" required />
+
+        <label for="end_time">End Time:</label>
+        <input type="time" id="end_time" name="end_time" required />
+        <button type="submit" class="custom-btn-next">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

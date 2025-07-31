@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="sidebar-container_old"></div>
+      <!-- Sidebar -->
+      <!-- Sidebar -->
+      {% include 'sidebar.html' %}
+
+      <!-- Main Content -->
+      <main class="main-content_dashboard">
+        <h1>Dashboard Overview</h1>
+
+        <div class="cards">
+          <div class="card">
+            <h2>Total Events</h2>
+            <p>12</p>
+          </div>
+          <div class="card">
+            <h2>Total Bookings</h2>
+            <p>45</p>
+          </div>
+          <div class="card">
+            <h2>Total Users</h2>
+            <p>{{ total_users }}</p>
+          </div>
+        </div>
+
+        <div class="chart-placeholder">
+          <img
+            src="{{ url_for('static', filename='image_admin/graph.png') }}"
+            alt="Graph"
+          />
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

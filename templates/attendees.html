@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attendees Management</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="attendee-top-bar">
+      <a href="index.html">🏠 Home</a>
+    </div>
+
+    <div class="attendee-container">
+      <h1>Attendee Form</h1>
+      <form id="attendee-form" method="POST" action="/submit-attendee">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="event">Select Event</label>
+        <select id="event" name="event_type" required>
+          <option value="">-- Choose Event --</option>
+          <option value="birthday">Birthday</option>
+          <option value="wedding">Wedding</option>
+          <option value="concert">Concert</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="others">Others</option>
+        </select>
+
+        <label>Will you attend?</label>
+        <div class="attendee-radio-group">
+          <label>
+            <input type="radio" name="status" value="Attending" required />
+            Attending
+          </label>
+          <label>
+            <input type="radio" name="status" value="Not Attending" />
+            Not Attending
+          </label>
+          <label>
+            <input type="radio" name="status" value="Maybe" />
+            Maybe
+          </label>
+        </div>
+
+        <button class="attendee-submit-btn" type="submit">Submit</button>
+
+        <div id="attendee-confirmation-message">
+          ✅ Your form has been submitted successfully!
+        </div>
+      </form>
+
+      <a href="{{url_for('book_ticket')}}" class="attendee-book-btn">
+        🎟️ Book Online ?
+      </a>
+    </div>
+
+    {% if success %}
+    <script>
+      document.getElementById("attendee-confirmation-message").style.display =
+        "block";
+    </script>
+    {% endif %}
+  </body>
+</html>

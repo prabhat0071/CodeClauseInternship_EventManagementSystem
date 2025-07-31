@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - PrabhatEvents</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+
+      .payment-section {
+        max-width: 480px;
+        margin: 140px auto 80px;
+        background: #2d2a3f;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .payment-section h2 {
+        margin-bottom: 20px;
+        font-size: 28px;
+      }
+
+      .qr-img {
+        width: 200px;
+        margin: 20px auto;
+        border-radius: 10px;
+      }
+
+      .upi-details {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+
+      .upload-input {
+        margin-top: 20px;
+        background-color: #fff;
+        color: #333;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+      }
+
+      .pay-btn {
+        margin-top: 20px;
+        background-color: #7c3aed;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .pay-btn:hover {
+        background-color: #5b21b6;
+      }
+
+      .thankyou-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        color: #333;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        text-align: center;
+      }
+
+      .thankyou-popup h3 {
+        margin-bottom: 10px;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="payment-section">
+      <h2>📱 UPI Payment</h2>
+      <img src="image/paymentQr.jpg" alt="UPI QR Code" class="qr-img" />
+      <p class="upi-details">📧 UPI ID: <strong>7985136531@pthdfc</strong></p>
+      <p class="upi-details">📞 UPI Number: <strong>7985136531</strong></p>
+
+      <input
+        type="file"
+        id="screenshot"
+        class="upload-input"
+        accept="image/*"
+      />
+
+      <button class="pay-btn" onclick="handleSubmit()">Submit Payment</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="thankyou-popup" id="thankyouPopup">
+      <h3>🎉 Thank You!</h3>
+      <p>Your payment screenshot has been submitted.</p>
+      <p>We’ll verify and confirm your booking shortly.</p>
+    </div>
+
+    <script>
+      function handleSubmit() {
+        const fileInput = document.getElementById("screenshot");
+
+        if (!fileInput.files.length) {
+          alert("⚠️ Please upload your payment screenshot before submitting.");
+          return;
+        }
+
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("thankyouPopup").style.display = "block";
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 3500);
+      }
+    </script>
+  </body>
+</html>

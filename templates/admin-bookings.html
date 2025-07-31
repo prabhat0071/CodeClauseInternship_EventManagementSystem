@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Bookings</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin.css') }}"
+    />
+  </head>
+  <body>
+    <section class="admin-booking-table" style="margin: 120px 20px">
+      <h1 class="section-title">All Event Bookings</h1>
+
+      <div class="booking-table-container">
+        {% include 'sidebar.html' %}
+
+        <table class="booking-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>User Name</th>
+              <th>Event Name</th>
+              <th>Tickets</th>
+              <th>Booking Date</th>
+              <th>Amount</th>
+              <th>Payment status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in bookings %}
+            <tr>
+              <td>#BK{{ booking.booking_id }}</td>
+              <td>{{ booking.user_name }}</td>
+              <td>{{ booking.event_title }}</td>
+              <td>{{ booking.num_tickets }}</td>
+              <td>{{ booking.booking_time.strftime("%d %B %Y %I:%M %p") }}</td>
+              <td>{{ booking.ticket_price}}</td>
+
+              <td>
+                {% if booking.status == 'Paid' %}
+                <span class="paid">Paid</span>
+                {% else %}
+                <span class="pending">Pending</span>
+                {% endif %}
+              </td>
+
+              <td>
+                {% if booking.status == 'Confirmed' %}
+                <span class="confirmed">Confirmed</span>
+                {% elif booking.status == 'Cancelled' %}
+                <span class="cancelled">Cancelled</span>
+                {% else %} {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

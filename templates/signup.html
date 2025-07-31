@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup | Prabhat Events</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="top-nav">
+      <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+    <section class="form-section">
+      <h1>Create Your Account inside template</h1>
+      <!-- <form action="#"> -->
+      <form action="/signup" method="post">
+        <input type="text" name="full_name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="phone" name="phone" placeholder="Phone" required />
+        <input
+          type="password"
+          name="password_hash"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          required
+        />
+        <button type="submit" class="submit-btn">Sign Up</button>
+      </form>
+      <p style="margin-top: 1rem">
+        Already have an account?
+        <a href="login.html" style="color: #ff4ecd">Login</a>
+      </p>
+    </section>
+  </body>
+</html>
